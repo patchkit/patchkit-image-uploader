@@ -1,4 +1,5 @@
 import React from 'react'
+import canvasToBlob from './canvas-to-blob'
 
 const DEFAULT_CANVAS_SIZE = 512
 
