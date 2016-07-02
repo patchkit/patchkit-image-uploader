@@ -1,5 +1,6 @@
 import React from 'react'
 import canvasToBlob from './canvas-to-blob'
+import t from 'patchwork-translations'
 
 const DEFAULT_CANVAS_SIZE = 512
 
@@ -50,7 +51,7 @@ export default class ImageInput extends React.Component {
       return
 
     // load current image into the canvas
-    this.setState({ editorMsg: 'loading...', hasImg: true })
+    this.setState({ editorMsg: t('imageUploader.loading'), hasImg: true })
     let img = document.createElement('img')
     img.src = this.props.current
     img.onload = () => {
@@ -61,7 +62,7 @@ export default class ImageInput extends React.Component {
       this.setState({
         img: img,
         imgdim: imgdim,
-        editorMsg: 'Zoom:',
+        editorMsg: t('imageUploader.Zoom'),
         ox: 0,
         oy: 0,
         zoom: this.getCanvasSize()/smallest,
@@ -85,7 +86,7 @@ export default class ImageInput extends React.Component {
     if (!file)
       return
 
-    this.setState({ editorMsg: 'loading...', hasImg: true })
+    this.setState({ editorMsg: t('imageUploader.loading'), hasImg: true })
 
     var reader = new FileReader()
     reader.onload = e => {
@@ -102,7 +103,7 @@ export default class ImageInput extends React.Component {
       this.setState({
         img: img,
         imgdim: imgdim,
-        editorMsg: 'Zoom:',
+        editorMsg: t('imageUploader.Zoom'),
         ox: 0,
         oy: 0,
         zoom: this.getCanvasSize()/smallest,
@@ -188,7 +189,7 @@ export default class ImageInput extends React.Component {
               <input ref="scaleSlider" type="range" value={this.state.scaleSliderValue} onChange={this.onResize.bind(this)} style={{height: '45px', verticalAlign: 'middle'}} />
             </div>
             {''/*<div style={{whiteSpace: 'pre', paddingLeft: '15px'}}>
-              <label>Rotate: <button className="btn" onClick={this.onRotate.bind(this)} style={{padding: '10px 16px', color: 'gray'}}><i className="fa fa-rotate-right" /></button></label>
+              <label>{t('imageUploader.Rotate')} <button className="btn" onClick={this.onRotate.bind(this)} style={{padding: '10px 16px', color: 'gray'}}><i className="fa fa-rotate-right" /></button></label>
             </div>*/}
           </div>
           <br/>
@@ -203,7 +204,7 @@ export default class ImageInput extends React.Component {
         <label>
           <span>{this.props.label}</span>
           <input ref="fileInput" type="file" accept="image/png,image/jpg,image/jpeg" onChange={this.onFileChosen.bind(this)} style={{display: 'none'}} />
-          <button className="btn" onClick={this.onClickFile.bind(this)}>Choose File</button>
+          <button className="btn" onClick={this.onClickFile.bind(this)}>{t('imageUploader.ChooseFile')}</button>
         </label>
       </div>
     </div>

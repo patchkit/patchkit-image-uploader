@@ -4,6 +4,7 @@
   "description": "Open an image, scale and crop, and then upload",
   "main": "index.jsx",
   "dependencies": {
+    "patchwork-translations": "^1.0.0",
     "react": "^0.14.6"
   },
   "devDependencies": {
