@@ -1,6 +1,6 @@
 {
   "name": "patchkit-image-uploader",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Open an image, scale and crop, and then upload",
   "main": "index.jsx",
   "dependencies": {
